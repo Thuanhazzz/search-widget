@@ -3,37 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tìm kiếm câu hỏi thủ công</title>
+    <title>Hộp Tìm Kiếm</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 10px; width: 350px; height: 400px; text-align: center; }
-        input { width: 80%; padding: 8px; margin-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f4f4f4; }
-        #tableContainer { max-height: 400px; overflow-y: auto; border: 1px solid #ccc; }
-        h2 { font-size: 22px; font-weight: bold; color: #ff4500; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);}
-        #searchContainer { position: sticky; top: 0; background: white; padding: 10px; z-index: 10; border-bottom: 2px solid #ddd;}
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        button { padding: 10px 20px; background: #4CAF50; color: white; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h2>Tìm kiếm câu hỏi vấn đáp <br>-Hoàng Tuyền Ma Tông-<br></h2>
-    <div id="searchContainer">
-        <input type="text" id="searchBox" placeholder="Nhập từ khóa...">
-    </div>
-    <div id="tableContainer">
-        <table>
-            <thead>
-                <tr>
-                    <th>Câu hỏi</th>
-                    <th>Câu trả lời</th>
-                </tr>
-            </thead>
-            <tbody id="qaTable">
-                <!-- Các câu hỏi và câu trả lời sẽ được thêm ở đây -->
-            </tbody>
-        </table>
-    </div>
+    <h2>🔍 Tìm kiếm dữ liệu</h2>
+    <button onclick="openSearchPopup()">Mở hộp tìm kiếm</button>
 
-    <script src="search.js"></script>
+    <script>
+        function openSearchPopup() {
+            let popup = window.open("", "SearchPopup", "width=600,height=400");
+
+            let popupContent = `
+                <html>
+                <head>
+                    <title>Tìm kiếm</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+                        input { width: 80%; padding: 10px; margin-bottom: 10px; }
+                        button { padding: 10px 20px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+                        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                        th { background-color: #f4f4f4; }
+                        #tableContainer { max-height: 300px; overflow-y: auto; border: 1px solid #ccc; }
+                    </style>
+                </head>
+                <body>
+                    <h2>🔍 Nhập từ khóa để tìm kiếm</h2>
+                    <input type="text" id="searchBox" placeholder="Nhập từ khóa...">
+                    <button onclick="filterQuestions()">Tìm kiếm</button>
+                    <div id="tableContainer">
+                        <table>
+                            <thead>
+                                <tr><th>Câu hỏi</th><th>Câu trả lời</th></tr>
+                            </thead>
+                            <tbody id="qaTable"></tbody>
+                        </table>
+                    </div>
+                    <script>
+                        let data = {};
+                        fetch('https://thuanhazzz.github.io/search-widget/data.json')
+                            .then(response => response.json())
+                            .then(json => { data = json; console.log("Dữ liệu tải thành công!"); })
+                            .catch(error => console.error("Lỗi tải dữ liệu:", error));
+
+                        function filterQuestions() {
+                            let query = document.getElementById("searchBox").value.toLowerCase();
+                            let table = document.getElementById("qaTable");
+                            table.innerHTML = "";
+                            Object.entries(data).forEach(([q, a]) => {
+                                if (q.toLowerCase().includes(query)) {
+                                    let row = table.insertRow();
+                                    row.insertCell(0).innerText = q;
+                                    row.insertCell(1).innerText = a;
+                                }
+                            });
+                        }
+                    <\/script>
+                </body>
+                </html>
+            `;
+
+            popup.document.write(popupContent);
+            popup.document.close();
+        }
+    </script>
 </body>
 </html>
