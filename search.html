@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 5px;
+            padding: 0;
         }
 
         #title {
@@ -18,23 +18,15 @@
 			-webkit-background-clip: text;
 			color: transparent;
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-			padding: 0;
-			margin-top: 0;
-		}
-
-		#sub-title {
-			font-size: 28px; /* Tăng cỡ chữ */
-			font-weight: bold;
-			color: #b30000;
-			text-align: center;
-			margin-top: -15px; /* Giảm khoảng cách với h2 */
+			padding: -10px;
+			margin-top: -10px;
 		}
 
         #searchContainer {
             width: 60%;
-            padding: 0;
+            padding: -10px;
             border-bottom: 2px solid #333;
-            margin: 5px auto;
+            margin: 0 auto;
         }
 
         #searchBox {
@@ -78,8 +70,6 @@
 </head>
 <body>
     <h2 id="title">⚔️🔥 Vấn Đáp Tông Môn 🔥⚔️<br></h2>
-    <h3 id="sub-title">-Hoàng Tuyền Ma Tông-</h3>
-
     <div id="searchContainer">
         <input type="text" id="searchBox" placeholder="Nhập từ khóa..." oninput="filterQuestions()">
     </div>
