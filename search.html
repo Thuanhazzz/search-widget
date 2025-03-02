@@ -8,32 +8,33 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            padding: 20px;
+            padding: 5px;
         }
 
         #title {
-			font-size: 32px; /* Tăng kích thước chữ */
+			font-size: 40px; /* Tăng kích thước chữ */
 			font-weight: bold;
 			background: linear-gradient(to right, #ff0000, #ff7300, #ffeb00, #00ff00, #007bff, #8a2be2);
 			-webkit-background-clip: text;
 			color: transparent;
 			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-			padding: 10px;
+			padding: 0;
+			margin-top: 0;
 		}
 
 		#sub-title {
-			font-size: 26px; /* Tăng cỡ chữ */
+			font-size: 28px; /* Tăng cỡ chữ */
 			font-weight: bold;
 			color: #b30000;
 			text-align: center;
-			margin-top: -5px; /* Giảm khoảng cách với h2 */
+			margin-top: -15px; /* Giảm khoảng cách với h2 */
 		}
 
         #searchContainer {
             width: 60%;
-            padding: 15px 0;
+            padding: 0;
             border-bottom: 2px solid #333;
-            margin: 0 auto;
+            margin: 5px auto;
         }
 
         #searchBox {
@@ -42,17 +43,18 @@
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
+			margin-top: -10px;
         }
 
         #tableContainer {
-            max-height: 400px;
+            max-height: 350px;
             overflow-y: auto;
             border: 1px solid #333;
             width: 80%;
             padding: 10px;
             background: #f9f9f9;
             border-radius: 5px;
-            margin: 20px auto;
+            margin: 0 auto;
         }
 
        table {
@@ -75,8 +77,8 @@
     </style>
 </head>
 <body>
-    <h2 id="title">⚔️🔥 Vấn Đáp Tông Môn 🔥⚔️</h2>
-    <h3 id="sub-title">- Hoàng Tuyền Ma Tông -</h3>
+    <h2 id="title">⚔️🔥 Vấn Đáp Tông Môn 🔥⚔️<br></h2>
+    <h3 id="sub-title">-Hoàng Tuyền Ma Tông-</h3>
 
     <div id="searchContainer">
         <input type="text" id="searchBox" placeholder="Nhập từ khóa..." oninput="filterQuestions()">
