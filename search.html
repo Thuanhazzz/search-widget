@@ -3,60 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vấn đáp tông môn</title>
+    <title>Vấn Đáp Tông Môn</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-		#searchContainer {
-			width: 90%;
-			position: sticky;
-			top: 0;
-			background: white;
-			padding: 15px 0;
-			z-index: 10;
-			border-bottom: 2px solid #333;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #title {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(to right, #ff0000, #ff7300, #ffeb00, #00ff00, #007bff, #8a2be2);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+        }
+		 #sub-title {
+			font-size: 22px;
+			font-weight: bold;
+			color: #b30000;
+			text-align: center;
+			margin-top: -10px;
 		}
+
+        #searchContainer {
+            width: 60%;
+            padding: 15px 0;
+            border-bottom: 2px solid #333;
+        }
+
         #searchBox {
             width: 80%;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
-		#tableContainer {
-            max-height: 330px;
+
+        #tableContainer {
+            max-height: 400px;
             overflow-y: auto;
-            border: 2px solid #333;
-            display: inline-block;
-            width: 80%; 
+            border: 1px solid #333;
+            width: 80%;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
         }
-		 #title {
-			font-size: 28px;
-			font-weight: bold;
-			text-align: center;
-			background: linear-gradient(to right, #ff0000, #ff7300, #ffeb00, #00ff00, #007bff, #8a2be2);
-			-webkit-background-clip: text;
-			color: transparent;
-			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-			padding: 10px;
-		}
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            font-size: 18px;
         }
 
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 12px;
             text-align: left;
         }
 
         th {
-            background-color: #f4f4f4;
+            background-color: #4CAF50;
+            color: white;
         }
     </style>
 </head>
 <body>
     <h2 id="title">⚔️🔥 Vấn Đáp Tông Môn 🔥⚔️</h2>
+	<h3 id="sub-title">- Hoàng Tuyền Ma Tông -</h3>
+
     <div id="searchContainer">
         <input type="text" id="searchBox" placeholder="Nhập từ khóa..." oninput="filterQuestions()">
     </div>
@@ -71,13 +96,6 @@
     </div>
 
     <script>
-		document.addEventListener("DOMContentLoaded", function() {
-			let header = document.querySelector("header");
-			let footer = document.querySelector("footer");
-			if (header) header.style.display = "none";
-			if (footer) footer.style.display = "none";
-		});
-        // Dữ liệu mẫu
         let data = {
 			"1 Trong 2 Admin của website HoatHinh3D là ai ? (Biệt danh chính xác ở web)":"4. Từ Dương",
 			"Ai là huynh đệ và cũng là người thầy mà Vương Lâm trong Tiên Nghịch kính trọng nhất ?":"2. Tư Đồ Nam",
@@ -246,7 +264,6 @@
                 }
             });
         }
-
         // Hiển thị tất cả dữ liệu khi trang vừa load
         filterQuestions();
     </script>
