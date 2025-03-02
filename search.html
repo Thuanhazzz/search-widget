@@ -37,29 +37,32 @@
             border-radius: 4px;
 			margin-top: -10px;
         }
+		
+		#tableContainer {
+			width: 90%; /* Bảng chiếm 90% chiều rộng trang */
+			max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+			min-width: 300px; /* Đảm bảo bảng không quá nhỏ */
+			overflow-x: auto; /* Tạo thanh cuộn ngang nếu cần */
+			margin: 20px auto;
+			padding: 10px;
+			border: 2px solid #333;
+			background: #f9f9f9;
+			border-radius: 8px;
+		}
 
-        #tableContainer {
-            max-height: 350px;
-            overflow-y: auto;
-            border: 1px solid #333;
-            width: 80%;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
-            margin: 0 auto;
-        }
-
-       table {
-			width: 100%;
+		table {
+			width: 100%; /* Bảng luôn vừa với khung chứa */
 			border-collapse: collapse;
-			font-size: 16px; /* Giảm kích thước chữ */
+			font-size: 16px;
 		}
 
 		th, td {
-			border: 1px solid #ccc; /* Viền nhỏ hơn */
-			padding: 10px; /* Điều chỉnh khoảng cách trong ô */
+			border: 1px solid #ccc;
+			padding: 8px;
 			text-align: left;
+			word-wrap: break-word; /* Tự động xuống dòng nếu nội dung dài */
 		}
+
 
 		th {
 			background-color: #4CAF50;
